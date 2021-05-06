@@ -14,7 +14,17 @@ public class Main {
         System.out.println(maxDVal);
 
         int x = 10;
-        float y = (float)5.25;
-        double z = 10.23;
+        float y = 5f;
+        double z = 5d;
+
+        System.out.println(x);
+        System.out.println(y);
+        System.out.println(z);
+
+
+//        Challenge Pound to Kilogram
+        double pound = 200;
+        double kilogram = pound * 0.45359237;
+        System.out.println(kilogram);
     }
 }
