@@ -31,7 +31,11 @@ public class Main {
         long maxLong = Long.MAX_VALUE;
         System.out.println(minLong);
         System.out.println(maxLong);
-        
+
+//        Casting
+        int myTot = (minInt/2);
+        byte newByte = (byte)(minByte/2);
+        short newShort = (short)(minShort/2);
 
     }
 }
