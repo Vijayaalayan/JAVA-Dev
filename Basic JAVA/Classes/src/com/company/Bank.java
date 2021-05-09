@@ -18,6 +18,11 @@ public class Bank {
         this.customerEmail = customerEmail;
         this.phoneNumber = phoneNumber;
     }
+
+    public Bank(String customerName, String customerEmail, String phoneNumber) {
+        this("9999",0000,customerName,customerEmail,phoneNumber);
+    }
+
     public void setAccountNumber(String accountNumber){
         this.accountNumber = accountNumber;
     }

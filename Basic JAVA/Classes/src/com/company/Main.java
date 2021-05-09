@@ -33,5 +33,7 @@ public class Main {
         vijayBank.removeBalance(50);
         vijayBank.removeBalance(51);
         Bank xBank = new Bank();
+        Bank yBank = new Bank("YYY","yyy@gmail.com","1234567890");
+        System.out.println(yBank.getAccountNumber()+" "+yBank.getPhoneNumber()+" "+yBank.getCustomerName());
     }
 }
