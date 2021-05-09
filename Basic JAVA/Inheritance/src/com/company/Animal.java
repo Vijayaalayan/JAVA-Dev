@@ -21,6 +21,10 @@ public class Animal {
         System.out.println("Animal.chew() is called");
     }
 
+    public void move(int speed){
+        System.out.println("Animal.move() called "+speed);
+    }
+
     public String getName() {
         return name;
     }
