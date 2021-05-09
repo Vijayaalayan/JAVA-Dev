@@ -25,15 +25,23 @@ public class Main {
 //        System.out.println(calculator.getDivisionResult());
 
 //        Constructors
-        Bank vijayBank = new Bank("1234",0000,"Vijay","vijayaalayan1234@gmail.com","9876543210");
-        System.out.println(vijayBank.getAccountNumber());
-        System.out.println(vijayBank.getCustomerName());
-        System.out.println(vijayBank.getPhoneNumber());
-        vijayBank.addBalance(100);
-        vijayBank.removeBalance(50);
-        vijayBank.removeBalance(51);
-        Bank xBank = new Bank();
-        Bank yBank = new Bank("YYY","yyy@gmail.com","1234567890");
-        System.out.println(yBank.getAccountNumber()+" "+yBank.getPhoneNumber()+" "+yBank.getCustomerName());
+//        Bank vijayBank = new Bank("1234",0000,"Vijay","vijayaalayan1234@gmail.com","9876543210");
+//        System.out.println(vijayBank.getAccountNumber());
+//        System.out.println(vijayBank.getCustomerName());
+//        System.out.println(vijayBank.getPhoneNumber());
+//        vijayBank.addBalance(100);
+//        vijayBank.removeBalance(50);
+//        vijayBank.removeBalance(51);
+//        Bank xBank = new Bank();
+//        Bank yBank = new Bank("YYY","yyy@gmail.com","1234567890");
+//        System.out.println(yBank.getAccountNumber()+" "+yBank.getPhoneNumber()+" "+yBank.getCustomerName());
+
+//          Coding Exercise - 31
+        Wall wall = new Wall(5,4);
+        System.out.println(wall.getArea());
+        wall.setHeight(-1.5);
+        System.out.println(wall.getWidth());
+        System.out.println(wall.getHeight());
+        System.out.println(wall.getArea());
     }
 }
