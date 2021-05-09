@@ -11,6 +11,8 @@ public class Main {
 	    dog.eat();
 	    dog.walk();
 	    dog.run();
+	    Fish fish = new Fish("Fish",1,2,3,4,5);
+	    fish.swim(5);
 
     }
 }
