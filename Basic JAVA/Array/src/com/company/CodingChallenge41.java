@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class CodingChallenge41 {
     private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        int[] array = getIntegers(5);5
+        int[] array = getIntegers(5);
         array = sortIntegers(array);
         printArray(array);
     }
