@@ -1,5 +1,7 @@
 package com.company;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class CodingChallenge41 {
@@ -25,6 +27,7 @@ public class CodingChallenge41 {
         }
     }
     public static int[] sortIntegers(int[] values){
+//        int[] sortedArray = Arrays.copyOf(values,values.length);
         for(int i=0;i<values.length;i++){
             for(int j=i+1;j<values.length;j++){
                 if(values[i] < values[j]){
