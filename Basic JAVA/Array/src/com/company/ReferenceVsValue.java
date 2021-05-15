@@ -34,5 +34,17 @@ public class ReferenceVsValue {
         }
         System.out.println();
         System.out.println("Array 1 :"+ Arrays.toString(arr1));
+        System.out.println("Array 2 :"+ Arrays.toString(arr2));
+        modifyArray(arr1);
+        System.out.println("Array 1 :"+ Arrays.toString(arr1));
+        System.out.println("Array 2 :"+ Arrays.toString(arr2));
+        arr2=new int[]{1,2,3,4,5};
+        System.out.println("Array 1 :"+ Arrays.toString(arr1));
+        System.out.println("Array 2 :"+ Arrays.toString(arr2));
+
+    }
+
+    private static void modifyArray(int[] array){
+        array[0]=2;
     }
 }
