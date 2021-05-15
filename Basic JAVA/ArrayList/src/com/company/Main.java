@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -40,6 +41,7 @@ public class Main {
                     System.out.println("Enter a number between 1 and 6");
             }
         }
+	    processList();
     }
 
     private static void searchForItem() {
@@ -67,7 +69,7 @@ public class Main {
         System.out.println("Enter the item to be changed");
         scanner.nextLine();
         String item = scanner.nextLine();
-        groceryList.modifyGroceryList(position,item);
+        groceryList.modifyGroceryList(item);
     }
 
     private static void addItem() {
@@ -87,6 +89,12 @@ public class Main {
         System.out.println("\n6 - To exit the application");
     }
 
-
+    private static void processList(){
+        ArrayList<String > newArray = new ArrayList<>();
+        newArray.addAll(groceryList.getGroceryList());
+        ArrayList<String> nextArray = new ArrayList<>(groceryList.getGroceryList());
+        String[] myArray = new String[groceryList.getGroceryList().size()];
+        myArray = groceryList.getGroceryList().toArray(myArray);
+    }
 
 }

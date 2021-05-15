@@ -7,13 +7,26 @@ public class GroceryList {
     public void addGroceryItem(String item){
         groceryList.add(item);
     }
+
+    public ArrayList<String> getGroceryList() {
+        return groceryList;
+    }
+
     public void printList(){
         System.out.println("You have "+groceryList.size()+" items in your grocery list");
         for(int i=0;i<groceryList.size();i++){
             System.out.println((i+1)+". "+groceryList.get(i));
         }
     }
-    public void modifyGroceryList(int position, String item){
+
+    public void modifyGroceryList(String item){
+        int position = findItem(item);
+        if(position>=0){
+            modifyGroceryList(position,item);
+        }
+    }
+
+    private void modifyGroceryList(int position, String item){
         groceryList.set(position,item);
     }
     public void removeGroceryItem(int position) {
