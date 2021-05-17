@@ -43,4 +43,11 @@ public class MobilePhone {
         }
         return -1;
     }
+
+    public String queryContact(Contact contact){
+        if(findContact(contact.getName())>=0){
+            return contact.getName();
+        }
+        return null;
+    }
 }
