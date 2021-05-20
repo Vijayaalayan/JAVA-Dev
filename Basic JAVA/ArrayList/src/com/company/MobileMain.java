@@ -42,13 +42,51 @@ public class MobileMain {
     }
 
     private static void queryContact() {
+        System.out.println("Enter existing contact name");
+        String name = scanner.nextLine();
+        Contact existingContactRecord = mobilePhone.queryContact(name);
+        if(existingContactRecord == null){
+            System.out.println(name+" doesn't exist in the phonebook");
+        }else{
+            System.out.println("Name : "+existingContactRecord.getName()+" Number : "+existingContactRecord.getPhoneNumber());
+        }
     }
 
     private static void removeContact() {
+        System.out.println("Enter existing contact name");
+        String name = scanner.nextLine();
+        Contact existingContactRecord = mobilePhone.queryContact(name);
+        if(existingContactRecord == null){
+            System.out.println(name+" doesn't exist in the phonebook");
+        }else{
+            if(mobilePhone.removeContact(existingContactRecord)){
+                System.out.println("Deleted contact");
+            }else{
+                System.out.println("Error while deleting");
+            }
+        }
         
     }
 
     private static void updateContact() {
+        System.out.println("Enter existing contact name");
+        String name = scanner.nextLine();
+        Contact existingContactRecord = mobilePhone.queryContact(name);
+        if(existingContactRecord == null){
+            System.out.println(name+" doesn't exist in the phonebook");
+        }else{
+            System.out.println("Enter new contact name : ");
+            String newName = scanner.nextLine();
+            System.out.println("Enter phone number : ");
+            String newNumber = scanner.nextLine();
+            Contact newContact = new Contact(newName,newNumber);
+            if(mobilePhone.updateContact(existingContactRecord,newContact)){
+                System.out.println("Successfully updated record");
+            }else{
+                System.out.println("Error while updating");
+            }
+        }
+
         
     }
 
