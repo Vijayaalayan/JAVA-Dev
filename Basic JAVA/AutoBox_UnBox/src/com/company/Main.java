@@ -35,5 +35,13 @@ public class Main {
         for(int i=0;i<10;i++){
             System.out.println(intclass.get(i).getI());
         }
+
+        ArrayList<Integer> integerArrayList = new ArrayList<>();
+        for(int i=0;i<10;i++){
+            integerArrayList.add(Integer.valueOf(i));
+        }
+        for(int i=0;i<10;i++){
+            System.out.println(integerArrayList.get(i));
+        }
     }
 }
