@@ -55,6 +55,7 @@ public class Demo {
     private static void visit(LinkedList<String> members){
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
+        boolean forward = true;
         ListIterator<String> listIterator = members.listIterator();
         if(members.isEmpty()){
             System.out.println("No members is list");
@@ -72,17 +73,31 @@ public class Demo {
                     flag = false;
                     break;
                 case 1:
+                    if(!forward){
+                        if(listIterator.hasNext()){
+                            listIterator.next();
+                        }
+                        forward = true;
+                    }
                     if(listIterator.hasNext()){
                         System.out.println("Now visiting --> "+listIterator.next());
                     }else{
                         System.out.println("Reached end of list");
+                        forward = false;
                     }
                     break;
                 case 2:
+                    if(forward){
+                        if(listIterator.hasPrevious()){
+                            listIterator.previous();
+                        }
+                        forward = false;
+                    }
                     if(listIterator.hasPrevious()){
                         System.out.println("Now visiting --> "+listIterator.previous());
                     }else{
                         System.out.println("Reached end of list");
+                        forward = true;
                     }
                     break;
                 case 3:
