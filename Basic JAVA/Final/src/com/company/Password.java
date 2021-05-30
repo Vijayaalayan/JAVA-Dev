@@ -12,7 +12,8 @@ public class Password {
         return password*key;
     }
 
-    public void storePassword(){
+//    if declared as final no other method can override and change the critical information
+    public final void storePassword(){
         System.out.println("Saving password as "+this.encrytptedPassword);
     }
 
