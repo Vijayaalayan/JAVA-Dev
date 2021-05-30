@@ -6,5 +6,6 @@ public class StaticMain {
         StaticIntialiser staticIntialiser = new StaticIntialiser();
         staticIntialiser.method();
         System.out.println("Owner is "+StaticIntialiser.owner);
+//        Static initializers are called before constructors.
     }
 }
