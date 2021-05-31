@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Bus {
@@ -24,18 +25,25 @@ public class Bus {
     }
 
     public boolean reserveSeat(String seatNumber){
-        Seat requested = null;
-        for(Seat seat : seats){
-            if(seat.getSeatNumber().equals(seatNumber)){
-                requested=seat;
-                break;
-            }
-        }
-        if(requested == null){
+        Seat requested = new Seat(seatNumber);
+        int foundSeat = Collections.binarySearch(seats,requested,null);
+        if(foundSeat>=0){
+            return seats.get(foundSeat).reserve();
+        }else{
             System.out.println("There is no seat "+seatNumber);
             return false;
         }
-        return requested.reserve();
+//        for(Seat seat : seats){
+//            if(seat.getSeatNumber().equals(seatNumber)){
+//                requested=seat;
+//                break;
+//            }
+//        }
+//        if(requested == null){
+//            System.out.println("There is no seat "+seatNumber);
+//            return false;
+//        }
+//        return requested.reserve();
     }
 
     public boolean cancelSeat(String seatNumber){
@@ -58,12 +66,17 @@ public class Bus {
         }
     }
 
-    private class Seat {
+    private class Seat implements Comparable<Seat>{
         private final String seatNumber;
         private boolean reserved = false;
 
         public Seat(String seatNumber) {
             this.seatNumber = seatNumber;
+        }
+
+        @Override
+        public int compareTo(Seat seat) {
+            return this.seatNumber.compareToIgnoreCase(seat.getSeatNumber());
         }
 
         public boolean reserve(){
