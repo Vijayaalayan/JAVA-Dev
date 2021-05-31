@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Bus {
     private final String busName;
-    private List<Seat> seats = new ArrayList<>();
+    public List<Seat> seats = new ArrayList<>();
 
     public Bus(String busName,int numRows,int seatsPerRow) {
         this.busName = busName;
