@@ -17,17 +17,17 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-//        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        GridPane root = new GridPane();
-        root.setAlignment(Pos.CENTER);
-        root.setHgap(10);
-        root.setVgap(10);
-
-        Label greeting = new Label("Welcome to JavaFX");
-//        greeting.setTextFill(Paint.valueOf("0000FF"));
-        greeting.setTextFill(Color.RED);
-        greeting.setFont(Font.font("Times New Roman", FontWeight.BOLD,70));
-        root.getChildren().add(greeting);
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+//        GridPane root = new GridPane();
+//        root.setAlignment(Pos.CENTER);
+//        root.setHgap(10);
+//        root.setVgap(10);
+//
+//        Label greeting = new Label("Welcome to JavaFX");
+////        greeting.setTextFill(Paint.valueOf("0000FF"));
+//        greeting.setTextFill(Color.RED);
+//        greeting.setFont(Font.font("Times New Roman", FontWeight.BOLD,70));
+//        root.getChildren().add(greeting);
 
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root,700,275));
