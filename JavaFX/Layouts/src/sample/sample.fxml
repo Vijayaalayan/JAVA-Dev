@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <StackPane fx:controller="sample.Controller"
            xmlns:fx="http://javafx.com/fxml">
+<!--    Stackpane is used to align one over the other as like a photo for background and a text over it-->
     <Button text="This is button" style="-fx-background-color: red"/>
     <Label text="This is label" style="-fx-background-color: green"/>
 </StackPane>
@@ -11,6 +12,7 @@
 <!--<?import javafx.scene.control.Button?>-->
 <!--<TilePane fx:controller="sample.Controller"-->
 <!--          xmlns:fx="http://javafx.com/fxml">-->
+<!--TilePane is used for tiles with equal length and padding between each cell-->
 <!--    <Button text="One"/>-->
 <!--    <Button text="Two"/>-->
 <!--    <Button text="Three"/>-->
@@ -28,6 +30,7 @@
 <!--<?import javafx.scene.control.Button?>-->
 <!--<FlowPane fx:controller="sample.Controller"-->
 <!--          xmlns:fx="http://javafx.com/fxml" orientation="VERTICAL">-->
+<!--FlowPane is used to pop and push according to the window position align automatically-->
 <!--    <Button text="One"/>-->
 <!--    <Button text="Two"/>-->
 <!--    <Button text="Three"/>-->
