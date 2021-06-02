@@ -13,6 +13,15 @@
                BorderPane.alignment="center"
                style="-fx-border-color: red;-fx-border-width: 3;-fx-border-style: dashed"/>
     </top>
+    <left>
+        <Label text="Left label"/>
+    </left>
+    <right>
+        <Label text="Right label"/>
+    </right>
+    <center>
+        <Label text="Center label oooooooooooooooooooooooo"/>
+    </center>
     <bottom>
         <HBox  alignment="bottom_right" spacing="10">
             <padding>
