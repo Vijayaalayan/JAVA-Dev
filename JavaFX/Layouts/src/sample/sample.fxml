@@ -1,18 +1,27 @@
-<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
-<TilePane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml">
-    <Button text="One"/>
-    <Button text="Two"/>
-    <Button text="Three"/>
-    <Button text="Four"/>
-    <Button text="Five"/>
-    <Button text="Six"/>
-    <Button text="Seven"/>
-    <Button text="Eight"/>
-    <Button text="Nine"/>
-    <Button text="Ten"/>
-</TilePane>
+<StackPane fx:controller="sample.Controller"
+           xmlns:fx="http://javafx.com/fxml">
+    <Button text="This is button" style="-fx-background-color: red"/>
+    <Label text="This is label" style="-fx-background-color: green"/>
+</StackPane>
+
+<!--<?import javafx.scene.layout.TilePane?>-->
+<!--<?import javafx.scene.control.Button?>-->
+<!--<TilePane fx:controller="sample.Controller"-->
+<!--          xmlns:fx="http://javafx.com/fxml">-->
+<!--    <Button text="One"/>-->
+<!--    <Button text="Two"/>-->
+<!--    <Button text="Three"/>-->
+<!--    <Button text="Four"/>-->
+<!--    <Button text="Five"/>-->
+<!--    <Button text="Six"/>-->
+<!--    <Button text="Seven"/>-->
+<!--    <Button text="Eight"/>-->
+<!--    <Button text="Nine"/>-->
+<!--    <Button text="Ten"/>-->
+<!--</TilePane>-->
 
 
 <!--<?import javafx.scene.layout.FlowPane?>-->
