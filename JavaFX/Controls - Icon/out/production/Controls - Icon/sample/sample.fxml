@@ -88,7 +88,7 @@
         </value>
     </ChoiceBox>
     <Slider GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="4" min="-50" max="50"
-        showTickLabels="true" showTickMarks="true" minorTickCount="4" snapToTicks="true"/>
+        showTickLabels="true" showTickMarks="true" minorTickCount="4" snapToTicks="true" orientation="VERTICAL"/>
     <Spinner GridPane.rowIndex="2" GridPane.columnIndex="4" min="-50" max="50" editable="true" initialValue="0"/>
     <ColorPicker GridPane.rowIndex="3" GridPane.columnIndex="0"/>
     <DatePicker GridPane.rowIndex="3" GridPane.columnIndex="1"/>
