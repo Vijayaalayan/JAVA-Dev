@@ -1,9 +1,11 @@
 package sample;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class Controller {
@@ -17,6 +19,8 @@ public class Controller {
     private CheckBox toClearCheck;
     @FXML
     private Button deletion;
+    @FXML
+    private Label toChangeLabel;
     public void initialize(){
         click.setDisable(true);
         bye.setDisable(true);
@@ -32,12 +36,29 @@ public class Controller {
         }else if(e.getSource().equals(bye)){
             System.out.println("Bye, "+text);
         }
-        
-        try {
-            Thread.sleep(5000);
-        }catch (Exception exception){
+        Runnable task = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String t = Platform.isFxApplicationThread()?"UI Thread":"Background Thread";
+                    System.out.println("Working in "+t);
+                    Thread.sleep(5000);
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            String t = Platform.isFxApplicationThread()?"UI Thread":"Background Thread";
+                            System.out.println("Working in "+t);
+                            toChangeLabel.setText("We changed");
+                        }
+                    });
+                }catch (Exception exception){
+//                    We do nothing here yet
+                }
+            }
+        };
 
-        }
+        new Thread(task).start();
+
         if(toClearCheck.isSelected()){
             nameField.clear();
             click.setDisable(true);
