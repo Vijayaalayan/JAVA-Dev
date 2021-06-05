@@ -1,12 +1,39 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class Controller {
     @FXML
     private TextField nameField;;
-    public void onButtonClicked(){
-        System.out.println(nameField.getText()+", you have clicked me");
+    @FXML
+    private Button click;
+    @FXML
+    private Button bye;
+    @FXML
+    public void initialize(){
+        click.setDisable(true);
+        bye.setDisable(true);
+    }
+
+    @FXML
+    public void onButtonClicked(ActionEvent e){
+        String text = nameField.getText();
+        text = text.trim();
+        if(e.getSource().equals(click)){
+            System.out.println(text+", you have clicked me");
+        }else if(e.getSource().equals(bye)){
+            System.out.println("Bye, "+text);
+        }
+    }
+
+    @FXML
+    public void handleKeyPressed(){
+        String text = nameField.getText();
+        boolean disable = text.isEmpty() || text.trim().isEmpty();
+        click.setDisable(disable);
+        bye.setDisable(disable);
     }
 }
