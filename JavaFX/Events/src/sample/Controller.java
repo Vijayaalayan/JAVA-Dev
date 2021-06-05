@@ -32,6 +32,12 @@ public class Controller {
         }else if(e.getSource().equals(bye)){
             System.out.println("Bye, "+text);
         }
+        
+        try {
+            Thread.sleep(5000);
+        }catch (Exception exception){
+
+        }
         if(toClearCheck.isSelected()){
             nameField.clear();
             click.setDisable(true);
