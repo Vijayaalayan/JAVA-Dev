@@ -18,5 +18,4 @@
             onAction="#setDeletion"/>
     <CheckBox fx:id="toClearCheck" text="Click me to clear text field after printing" GridPane.rowIndex="2" GridPane.columnIndex="0"
               onAction="#setToClearCheck"/>
-    <Label fx:id="toChangeLabel" text="Nothing has happened" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
 </GridPane>
