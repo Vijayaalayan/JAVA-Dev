@@ -7,13 +7,15 @@
 <?import javafx.scene.control.CheckBox?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <Label text="Enter your name" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
-    <TextField fx:id="nameField" GridPane.rowIndex="0" GridPane.columnIndex="2"
+    <Label text="Enter your name" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <TextField fx:id="nameField" GridPane.rowIndex="0" GridPane.columnIndex="1"
         onKeyReleased="#handleKeyPressed"/>
     <Button fx:id="click" text="Click Me" GridPane.rowIndex="1" GridPane.columnIndex="0"
         onAction="#onButtonClicked"/>
-    <Button fx:id="bye" text="Bye" GridPane.rowIndex="1" GridPane.columnIndex="2"
+    <Button fx:id="bye" text="Bye" GridPane.rowIndex="1" GridPane.columnIndex="1"
             onAction="#onButtonClicked"/>
+    <Button fx:id="deletion" text="Delete" GridPane.rowIndex="1" GridPane.columnIndex="2"
+            onAction="#setDeletion"/>
     <CheckBox fx:id="toClearCheck" text="Click me to clear text field after printing" GridPane.rowIndex="2" GridPane.columnIndex="0"
               onAction="#setToClearCheck"/>
 </GridPane>

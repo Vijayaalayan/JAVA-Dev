@@ -16,9 +16,11 @@ public class Controller {
     @FXML
     private CheckBox toClearCheck;
     @FXML
+    private Button deletion;
     public void initialize(){
         click.setDisable(true);
         bye.setDisable(true);
+        deletion.setDisable(true);
     }
 
     @FXML
@@ -34,6 +36,7 @@ public class Controller {
             nameField.clear();
             click.setDisable(true);
             bye.setDisable(true);
+            deletion.setDisable(true);
         }
     }
 
@@ -43,10 +46,19 @@ public class Controller {
         boolean disable = text.isEmpty() || text.trim().isEmpty();
         click.setDisable(disable);
         bye.setDisable(disable);
+        deletion.setDisable(disable);
     }
 
     @FXML
     public void setToClearCheck(){
         System.out.println("Check box is "+(toClearCheck.isSelected()?"checked":"not checked"));
+    }
+
+    @FXML
+    public void setDeletion(){
+        nameField.clear();
+        click.setDisable(true);
+        bye.setDisable(true);
+        deletion.setDisable(true);
     }
 }
