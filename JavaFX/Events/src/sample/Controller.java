@@ -52,7 +52,7 @@ public class Controller {
                         }
                     });
                 }catch (Exception exception){
-//                    We do nothing here
+//                    We do nothing here yet
                 }
             }
         };
