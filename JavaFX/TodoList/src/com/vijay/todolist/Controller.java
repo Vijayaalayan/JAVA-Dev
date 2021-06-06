@@ -1,7 +1,10 @@
 package com.vijay.todolist;
 
 import com.vijay.todolist.datamodel.TodoItem;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
@@ -17,6 +20,8 @@ public class Controller {
     private ListView<TodoItem> todoListView;
     @FXML
     private TextArea todoDetailedView;
+    @FXML
+    private Label dueLabel;
 
     public void initialize(){
         TodoItem item1 = new TodoItem("English Kaari Birthday","Buy 21st birthday card for English Kaari",
@@ -30,17 +35,47 @@ public class Controller {
         todoItems.add(item2);
         todoItems.add(item3);
 
+        todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {
+            @Override
+            public void changed(ObservableValue<? extends TodoItem> observableValue, TodoItem todoItem, TodoItem t1) {
+                if(t1!=null){
+                    TodoItem item = todoListView.getSelectionModel().getSelectedItem();
+                    todoDetailedView.setText(item.getDetails());
+                    dueLabel.setText(item.getDeadline().toString());
+                }
+            }
+        });
+
         todoListView.getItems().setAll(todoItems);
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        todoListView.getSelectionModel().selectFirst();
     }
 
     public void handleMouseClick(){
         TodoItem item = todoListView.getSelectionModel().getSelectedItem();
 //        System.out.println(item);
-        StringBuilder sb = new StringBuilder(item.getDetails());
-        sb.append("\n\n\n\n");
-        sb.append("Due Date : ");
-        sb.append(item.getDeadline());
-        todoDetailedView.setText(sb.toString());
+//        StringBuilder sb = new StringBuilder(item.getDetails());
+//        sb.append("\n\n\n\n");
+//        sb.append("Due Date : ");
+//        sb.append(item.getDeadline());
+//        todoDetailedView.setText(sb.toString());
+        todoDetailedView.setText(item.getDetails());
+        dueLabel.setText(item.getDeadline().toString());
+    }
+
+    public void updateClick(){
+        TodoItem item = todoListView.getSelectionModel().getSelectedItem();
+        ArrayList<String> searchList = new ArrayList<>();
+        String change = todoDetailedView.getText();
+        for(int i=0;i<todoItems.size();i++){
+            if(todoItems.get(i).getDetails().equals(item.getDetails())){
+                todoItems.get(i).setDetails(change);
+                System.out.println(todoItems.get(i).getDetails());
+                break;
+            }
+        }
+//        String present = item.getDetails();
+//        int index=
+//        System.out.println(index);
     }
 }
