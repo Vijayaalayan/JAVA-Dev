@@ -39,9 +39,16 @@ public class Controller {
             @Override
             public void changed(ObservableValue<? extends TodoItem> observableValue, TodoItem todoItem, TodoItem t1) {
                 if(t1!=null){
-                    TodoItem item = todoListView.getSelectionModel().getSelectedItem();
-                    todoDetailedView.setText(item.getDetails());
-                    dueLabel.setText(item.getDeadline().toString());
+                    handleMouseClick();
+//                    TodoItem item = todoListView.getSelectionModel().getSelectedItem();
+//                    todoDetailedView.setText(item.getDetails());
+//                    LocalDate date = item.getDeadline();
+//                    StringBuilder sb = new StringBuilder(String.valueOf(date.getDayOfMonth()));
+//                    sb.append("-");
+//                    sb.append(String.valueOf(date.getMonthValue()));
+//                    sb.append("-");
+//                    sb.append(String.valueOf(date.getYear()));
+//                    dueLabel.setText(sb.toString());
                 }
             }
         });
@@ -60,7 +67,13 @@ public class Controller {
 //        sb.append(item.getDeadline());
 //        todoDetailedView.setText(sb.toString());
         todoDetailedView.setText(item.getDetails());
-        dueLabel.setText(item.getDeadline().toString());
+        LocalDate date = item.getDeadline();
+        StringBuilder sb = new StringBuilder(String.valueOf(date.getDayOfMonth()));
+        sb.append("-");
+        sb.append(String.valueOf(date.getMonthValue()));
+        sb.append("-");
+        sb.append(String.valueOf(date.getYear()));
+        dueLabel.setText(sb.toString());
     }
 
     public void updateClick(){
