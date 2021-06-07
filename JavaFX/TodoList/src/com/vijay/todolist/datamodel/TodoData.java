@@ -33,9 +33,9 @@ public class TodoData {
         return todoItems;
     }
 
-    public void setTodoItems(List<TodoItem> todoItems) {
-        this.todoItems = todoItems;
-    }
+//    public void setTodoItems(List<TodoItem> todoItems) {
+//        this.todoItems = todoItems;
+//    }
 
     public void loadTodoItems() throws IOException{
         todoItems = FXCollections.observableArrayList();
@@ -47,7 +47,8 @@ public class TodoData {
                 String[] itemPieces = input.split("\t");
                 String shortDescription = itemPieces[0];
                 String details = itemPieces[1];
-                LocalDate date = LocalDate.parse(itemPieces[1],formatter);
+                String dateString = itemPieces[2];
+                LocalDate date = LocalDate.parse(dateString,formatter);
                 TodoItem todoItem = new TodoItem(shortDescription,details,date);
                 todoItems.add(todoItem);
             }
@@ -69,6 +70,7 @@ public class TodoData {
                         item.getShortDescription(),
                         item.getDetails(),
                         item.getDeadline().format(formatter))) ;
+                bw.newLine();
             }
         }finally {
             if(bw!=null){

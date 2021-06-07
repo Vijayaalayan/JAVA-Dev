@@ -19,7 +19,7 @@
     <center>
         <VBox style="-fx-background-color: white">
             <TextArea fx:id="todoDetailedView" VBox.vgrow="ALWAYS"/>
-            <Button fx:id="updateTextArea" text="UPDATE" onMouseClicked="#updateClick"/>
+<!--            <Button fx:id="updateTextArea" text="UPDATE" onMouseClicked="#updateClick"/>-->
             <HBox>
 
                 <Label text="Due : ">
