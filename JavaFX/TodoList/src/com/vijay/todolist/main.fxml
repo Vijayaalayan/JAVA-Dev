@@ -15,6 +15,15 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <BorderPane fx:controller="com.vijay.todolist.Controller"
             xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <MenuBar>
+            <Menu text="File">
+                <MenuItem text="New"/>
+                <SeparatorMenuItem/>
+                <MenuItem text="Exit"/>
+            </Menu>
+        </MenuBar>
+    </top>
     <left>
         <ListView fx:id="todoListView" onMouseClicked="#handleMouseClick">
 
