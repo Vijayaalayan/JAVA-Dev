@@ -69,6 +69,8 @@ public class Controller {
         }
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+        dialog.setTitle("Add new TodoList item");
+        dialog.setHeaderText("Add relevant details to add the todoList item");
 
         Optional<ButtonType> result = dialog.showAndWait();
         if(result.isPresent() && result.get() == ButtonType.OK){
