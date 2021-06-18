@@ -12,6 +12,8 @@ public class Main {
             Connection conn = DriverManager.getConnection("jdbc:sqlite:D:\\JAVA-Dev\\JDBC\\TestDB\\testdb.db");
             Statement statement = conn.createStatement();
             statement.execute("CREATE TABLE contacts(name TEXT,phone INTEGER ,email TEXT)");
+            statement.close();
+            conn.close();
         }catch (SQLException e){
             System.out.println("Something went wrong "+e.getMessage());
         }
