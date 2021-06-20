@@ -1,9 +1,6 @@
 package com.company;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Main {
 
@@ -17,7 +14,14 @@ public class Main {
 //            statement.execute("INSERT into contacts(name,phone,email) values ('Naveen',2341,'naveen@gmail.com')");
 //            statement.execute("INSERT into contacts(name,phone,email) values ('Nithin',3412,'nithin@gmail.com')");
 //            statement.execute("UPDATE contacts set name='Kili' where name='Vijay'");
-            statement.execute("DELETE FROM contacts where name='Kili'");
+//            statement.execute("DELETE FROM contacts where name='Kili'");
+            statement.execute("SELECT * from contacts");
+            ResultSet resultSet = statement.getResultSet();
+            while (resultSet.next()){
+                System.out.println(resultSet.getString("name")+" "+
+                                    resultSet.getInt("phone")+" "+
+                                    resultSet.getString("email"));
+            }
             statement.close();
             conn.close();
         }catch (SQLException e){
