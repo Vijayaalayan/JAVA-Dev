@@ -21,6 +21,15 @@ public class Main {
         for(Artist artist : artists){
             System.out.println("ID = "+artist.getId()+" Name = "+artist.getName());
         }
+
+        List<String> albumsFromArtist = datasource.queryAlbumsFromArtist("Iron Maiden",Datasource.ORDER_BY_ASC);
+        if(albumsFromArtist == null){
+            System.out.println("No albums from artist Iron Maiden");
+            return;
+        }
+        for(String albums : albumsFromArtist){
+            System.out.println(albums);
+        }
         datasource.close();
     }
 }

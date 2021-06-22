@@ -35,6 +35,14 @@ public class Datasource {
     public static final int ORDER_BY_ASC = 2;
     public static final int ORDER_BY_DESC = 3;
 
+//    SELECT albums.name from albums inner join artists on albums.artist = artists._id where artists.name = "Iron Maiden" ORDER BY albums.name COLLATE NOCASE ASC
+    public static final String QUERY_ALBUMS_BY_ARTIST_START =
+            "SELECT "+TABLE_ALBUMS+"."+COLUMN_ALBUM_NAME+" from "+TABLE_ALBUMS+" INNER JOIN "+TABLE_ARTISTS+" on "+
+                    TABLE_ALBUMS+"."+COLUMN_ALBUM_ARTIST+" = "+TABLE_ARTISTS+"."+COLUMN_ARTIST_ID+
+                    " where "+TABLE_ARTISTS+"."+COLUMN_ARTIST_NAME+" = \"";
+    public static final String QUERY_ALBUMS_BY_ARTIST_SORT =
+            " ORDER BY "+TABLE_ALBUMS+"."+COLUMN_ALBUM_NAME+" COLLATE NOCASE ";
+
 
     private Connection conn;
 
@@ -85,6 +93,32 @@ public class Datasource {
             return artists;
         }catch (SQLException e){
             System.out.println("Query Failed "+e.getMessage());
+            return null;
+        }
+    }
+
+    public List<String> queryAlbumsFromArtist(String artistName,int sortOrder){
+        StringBuilder sb = new StringBuilder(QUERY_ALBUMS_BY_ARTIST_START);
+        sb.append(artistName);
+        sb.append("\"");
+        if(sortOrder!=ORDER_BY_NONE){
+            sb.append(QUERY_ALBUMS_BY_ARTIST_SORT);
+            if(sortOrder == ORDER_BY_DESC){
+                sb.append("DESC");
+            }else{
+                sb.append("ASC");
+            }
+        }
+        System.out.println("SQL STATEMENT : "+sb.toString());
+        try(Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery(sb.toString())){
+            List<String> albums = new ArrayList<>();
+            while (resultSet.next()){
+                albums.add(resultSet.getString(1));
+            }
+            return albums;
+        }catch (SQLException e){
+            System.out.println("Query Failed : "+e.getMessage());
             return null;
         }
     }
