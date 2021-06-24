@@ -167,5 +167,17 @@ public class Datasource {
         }
     }
 
-   
+    public void querySongsMetaData(){
+        String sql = "SELECT * FROM "+TABLE_SONGS;
+        try(Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql)){
+            ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+            int numColumns = resultSetMetaData.getColumnCount();
+            for(int i=1;i<=numColumns;i++){
+                System.out.format("Column %d in the songs table is named %s\n",i,resultSetMetaData.getColumnLabel(i));
+            }
+        }catch (SQLException e){
+            System.out.println("Query Failed : "+e.getMessage());
+        }
+    }
 }

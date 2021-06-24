@@ -42,6 +42,9 @@ public class Main {
                     "Album name : "+songArtist.getAlbumName()+" "+
                     "Track : "+songArtist.getTrack());
         }
+
+        datasource.querySongsMetaData();
+
         datasource.close();
     }
 }
