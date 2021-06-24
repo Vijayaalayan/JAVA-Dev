@@ -136,4 +136,36 @@ public class Datasource {
             return null;
         }
     }
+
+    public List<SongArtist> queryArtistsForSong(String songName,int sortOrder){
+        StringBuilder sb = new StringBuilder(QUERY_ARTIST_FOR_SONG_START);
+        sb.append(songName);
+        sb.append("\"");
+        if(sortOrder!=ORDER_BY_NONE){
+            sb.append(QUERY_ALBUMS_BY_ARTIST_SORT);
+            if(sortOrder == ORDER_BY_DESC){
+                sb.append("DESC");
+            }else{
+                sb.append("ASC");
+            }
+        }
+        System.out.println("SQL STATEMENT : "+sb.toString());
+        try(Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery(sb.toString())){
+            List<SongArtist> songArtists = new ArrayList<>();
+            while(resultSet.next()){
+                SongArtist songArtist = new SongArtist();
+                songArtist.setArtistName(resultSet.getString(1));
+                songArtist.setAlbumName(resultSet.getString(2));
+                songArtist.setTrack(resultSet.getInt(3));
+                songArtists.add(songArtist);
+            }
+            return songArtists;
+        }catch (SQLException e){
+            System.out.println("Query Failed : "+e.getMessage());
+            return null;
+        }
+    }
+
+   
 }
