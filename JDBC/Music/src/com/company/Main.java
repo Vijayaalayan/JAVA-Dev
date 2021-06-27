@@ -5,6 +5,7 @@ import com.company.model.Datasource;
 import com.company.model.SongArtist;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
@@ -48,8 +49,13 @@ public class Main {
         System.out.println("Number of songs is : "+count);
 
         datasource.createViewForSongArtists();
-
-        List<SongArtist> viewSongArtists = datasource.querySongInfoView("Go Your Own Way");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter song title : ");
+//        Enter song title :
+//Go Your Own Way" or 1=1 or "
+//        SQL Injection attack
+        String title = scanner.nextLine();
+        List<SongArtist> viewSongArtists = datasource.querySongInfoView(title);
         if(viewSongArtists == null){
             System.out.println("Couldn't find artist");
             return;
