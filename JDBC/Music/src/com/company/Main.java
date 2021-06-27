@@ -48,6 +48,17 @@ public class Main {
         System.out.println("Number of songs is : "+count);
 
         datasource.createViewForSongArtists();
+
+        List<SongArtist> viewSongArtists = datasource.querySongInfoView("Go Your Own Way");
+        if(viewSongArtists == null){
+            System.out.println("Couldn't find artist");
+            return;
+        }
+        for(SongArtist songArtist : viewSongArtists){
+            System.out.println("Artist name : "+songArtist.getArtistName()+" "+
+                    "Album name : "+songArtist.getAlbumName()+" "+
+                    "Track : "+songArtist.getTrack());
+        }
         datasource.close();
     }
 }
