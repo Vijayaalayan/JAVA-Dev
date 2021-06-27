@@ -56,7 +56,7 @@ public class Main {
 //        SQL Injection attack
         String title = scanner.nextLine();
         List<SongArtist> viewSongArtists = datasource.querySongInfoView(title);
-        if(viewSongArtists == null){
+        if(viewSongArtists.isEmpty()){
             System.out.println("Couldn't find artist");
             return;
         }
