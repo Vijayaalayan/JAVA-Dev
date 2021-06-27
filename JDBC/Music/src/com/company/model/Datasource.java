@@ -1,5 +1,7 @@
 package com.company.model;
 
+import javafx.scene.Parent;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -178,6 +180,18 @@ public class Datasource {
             }
         }catch (SQLException e){
             System.out.println("Query Failed : "+e.getMessage());
+        }
+    }
+
+    public int getCount(String table){
+        String sql = "SELECT COUNT(*) FROM "+table;
+        try(Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql)){
+            int count = resultSet.getInt(1);
+            return count;
+        }catch (SQLException e){
+            System.out.println("Query Failed : "+e.getMessage());
+            return -1;
         }
     }
 }

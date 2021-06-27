@@ -11,6 +11,7 @@
     DataInputStream myInput = new DataInputStream(fis);
     int i=0;
 %>
+
 <table>
     <%
         while ((thisLine = myInput.readLine()) != null)
@@ -25,6 +26,7 @@
                 else
                 {
                     out.print(" <b>" +strar[j]+ "</b> ");
+//                    array[j] = strar[j];
                 }
             }
             out.println("<br>");
